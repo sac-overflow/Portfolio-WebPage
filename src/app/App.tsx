@@ -1,4 +1,3 @@
-import "../styles/custom.css";
 import { ThemeProvider } from "next-themes";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";

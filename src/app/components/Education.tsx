@@ -7,10 +7,10 @@ import { SectionHeader } from "./SectionHeader";
 export function Education() {
   return (
     <section className="py-20 px-6 max-w-7xl mx-auto w-full border-b border-border bg-background" id="education">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 w-full">
         
         {/* Education */}
-        <div>
+        <div className="w-full">
           <SectionHeader title="Education" />
           
           <motion.div 
@@ -18,16 +18,18 @@ export function Education() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="space-y-8"
+            className="space-y-6 md:space-y-8 w-full"
           >
             {resumeData.education.map((edu, index) => (
-              <motion.div key={index} variants={fadeIn} className="flex flex-col p-6 bg-card border border-border rounded-lg">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-2">
-                  <h3 className="text-xl font-semibold text-foreground">{edu.institution}</h3>
-                  <span className="text-sm font-mono text-muted-foreground whitespace-nowrap bg-muted px-2 py-1 rounded">{edu.duration}</span>
+              <motion.div key={index} variants={fadeIn} className="flex flex-col p-6 bg-card border border-border rounded-lg w-full">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 gap-2 w-full">
+                  <h3 className="text-xl font-semibold text-foreground tracking-tight">{edu.institution}</h3>
+                  <span className="text-sm font-mono text-muted-foreground bg-muted px-2 py-1 rounded w-fit sm:whitespace-nowrap shrink-0">
+                    {edu.duration}
+                  </span>
                 </div>
                 <p className="text-foreground/80 font-medium text-base mb-3">{edu.degree}</p>
-                <p className="text-sm text-muted-foreground font-mono">
+                <p className="text-sm text-muted-foreground font-mono leading-relaxed">
                   {edu.details}
                 </p>
               </motion.div>
@@ -36,7 +38,7 @@ export function Education() {
         </div>
 
         {/* Certifications */}
-        <div id="certifications">
+        <div id="certifications" className="w-full">
           <SectionHeader title="Certifications" />
 
           <motion.div 
@@ -44,15 +46,15 @@ export function Education() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="flex flex-col gap-4"
+            className="flex flex-col gap-4 w-full"
           >
             {resumeData.certifications.map((cert, index) => (
               <motion.div 
                 key={index} 
                 variants={fadeIn}
-                className="flex flex-col p-6 bg-card border border-border rounded-lg"
+                className="flex flex-col p-6 bg-card border border-border rounded-lg w-full"
               >
-                <h4 className="text-lg font-semibold text-foreground mb-2">
+                <h4 className="text-lg font-semibold text-foreground mb-2 tracking-tight">
                   {cert.title}
                 </h4>
                 <p className="text-sm text-muted-foreground mb-4">

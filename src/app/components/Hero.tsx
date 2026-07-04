@@ -128,42 +128,42 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-24 overflow-hidden border-b border-border">
-      <div className="absolute inset-0 z-0 opacity-50">
+    <section className="relative min-h-screen flex items-center justify-center pt-20 pb-16 overflow-hidden border-b border-border w-full bg-background">
+      <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
         <canvas ref={canvasRef} className="w-full h-full block" />
       </div>
       
-      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full flex flex-col items-center text-center">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full flex flex-col items-center justify-center text-center">
         <motion.div 
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center max-w-3xl"
+          className="flex flex-col items-center max-w-4xl w-full"
         >
           <motion.h1 
             variants={fadeIn}
-            className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-foreground leading-[1.1]"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground leading-[1.1] text-center w-full"
           >
             {resumeData.name}
           </motion.h1>
           
           <motion.p 
             variants={fadeIn}
-            className="mt-6 text-xl md:text-2xl text-foreground/80 font-medium tracking-tight"
+            className="mt-6 text-lg sm:text-xl md:text-2xl text-foreground/80 font-medium tracking-wide text-center max-w-3xl"
           >
             {resumeData.education[0].degree}
           </motion.p>
           
-          <motion.div variants={fadeIn} className="mt-8 flex flex-wrap justify-center gap-6 text-sm font-mono text-muted-foreground">
+          <motion.div variants={fadeIn} className="mt-8 flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-xs sm:text-sm font-mono text-muted-foreground w-full">
             <div className="flex items-center gap-2"><MapPin className="w-4 h-4" /> {resumeData.contact.location}</div>
             <div className="flex items-center gap-2"><Mail className="w-4 h-4" /> {resumeData.contact.email}</div>
             <div className="flex items-center gap-2"><Phone className="w-4 h-4" /> {resumeData.contact.phone}</div>
           </motion.div>
           
-          <motion.div variants={fadeIn} className="mt-10 flex flex-col sm:flex-row gap-4">
+          <motion.div variants={fadeIn} className="mt-12 flex flex-row gap-4 sm:gap-6 justify-center items-center">
             <a 
               href="#projects" 
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-foreground text-background font-medium rounded-md hover:bg-foreground/90 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-foreground text-background dark:bg-white dark:text-black font-semibold rounded-md hover:opacity-90 transition-all text-sm sm:text-base shadow-sm"
             >
               View Work
               <ArrowRight className="w-4 h-4" />
@@ -171,7 +171,7 @@ export function Hero() {
             <a 
               href={resumePdf} 
               target="_blank"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-transparent text-foreground font-medium rounded-md border border-border hover:bg-muted transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-transparent text-foreground border border-foreground/20 dark:border-white/20 font-semibold rounded-md hover:bg-muted transition-all text-sm sm:text-base"
             >
               <FileText className="w-4 h-4" />
               Resume
